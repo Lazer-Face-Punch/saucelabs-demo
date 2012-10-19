@@ -8,9 +8,7 @@
 		<groupId>fi.avaus.mandatumlife</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>fi.avaus.mandatumlife</groupId>
 	<artifactId>selenium-test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>selenium-test</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -23,5 +21,65 @@
 			<version>2.25.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.saucelabs</groupId>
+			<artifactId>sauce_junit</artifactId>
+			<version>1.0.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.saucelabs</groupId>
+			<artifactId>sauce_java_common</artifactId>
+			<version>1.0.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.saucelabs</groupId>
+			<artifactId>saucerest</artifactId>
+			<version>1.0.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<testResources>
+					<testResource>
+						<directory>src/test/profiles/local</directory>
+					</testResource>
+				</testResources>
+			</build>
+		</profile>
+		<profile>
+			<id>ci</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<testResources>
+					<testResource>
+						<directory>src/test/profiles/ci</directory>
+					</testResource>
+				</testResources>
+			</build>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<repository>
+			<id>saucelabs-repository</id>
+			<url>http://repository-saucelabs.forge.cloudbees.com/release</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>
