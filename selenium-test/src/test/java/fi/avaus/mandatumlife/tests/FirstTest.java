@@ -11,8 +11,8 @@ public class FirstTest extends SaucelabsSeleniumTest
 
 	@Test
 	public void openPage() {
-		driver.get(this.testProperties.getDomain() + "/web/guest/another");
-		assertEquals("Another - Liferay", driver.getTitle());
+		driver.get(this.testProperties.getDomain() + "/");
+		assertEquals("Welcome - Liferay", driver.getTitle());
 	}
 
 }
