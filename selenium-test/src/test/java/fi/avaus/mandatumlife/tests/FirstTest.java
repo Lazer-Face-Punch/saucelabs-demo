@@ -12,7 +12,7 @@ public class FirstTest extends SaucelabsSeleniumTest
 	@Test
 	public void openPage() {
 		driver.get(this.testProperties.getDomain() + "/");
-		assertEquals("Welcome - Liferay", driver.getTitle());
+		assertEquals("Welcome - Liferay2", driver.getTitle());
 	}
 
 }
